@@ -633,6 +633,7 @@ transform: scale(1.5);
     </div>
   </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     // Simple helpers
     function scrollToId(id){
@@ -680,6 +681,14 @@ requestForm.addEventListener('submit', (e) => {
     alert('Please fill the form so we can help you.');
     return;
   }
+const contactInfo = document.getElementById('contactInfo').value.trim();
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
+if (!emailRegex.test(contactInfo) && !phoneRegex.test(contactInfo)) {
+  alert('Please enter a valid email or phone number.');
+  return;
+}
 
   // Send email using EmailJS
   emailjs.send('service_yekq70e', 'template_8in927p', {
