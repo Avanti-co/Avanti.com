@@ -728,7 +728,7 @@ document.getElementById('clearForm').addEventListener('click', () => {
 
     // Accessibility: keyboard toggle assistant with "A"
     document.addEventListener('keydown', (e) => {
-      if(e.key.toLowerCase() === 'a'){
+      if(e.key.toLowerCase() === ''){
         assistantOpen = !assistantOpen;
         assistantPanel.classList.toggle('visible', assistantOpen);
         assistantToggle.setAttribute('aria-expanded', assistantOpen ? 'true' : 'false');
@@ -740,3 +740,4 @@ document.getElementById('clearForm').addEventListener('click', () => {
 
 </body>
 </html>
+
