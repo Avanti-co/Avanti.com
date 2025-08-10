@@ -466,9 +466,9 @@ transform: scale(1.5);
       </div>
     </section>
 
-<section>
+
 <img style="width: 100%;" src="hero2.jpeg">
-</section>
+
     <!-- How we work (simple steps) -->
     <section class="block" id="how" aria-labelledby="how-title">
       <h2 id="how-title" style="color:var(--white)">How Avanti works — simple steps</h2>
@@ -525,12 +525,17 @@ transform: scale(1.5);
 
           <label class="row" style="flex-direction:column">
             <span style="font-size:13px; color:var(--muted); margin-bottom:6px">Your name</span>
-            <input type="text" id="name" placeholder="eg. Jane Doe " required />
+            <input type="text" id="name" placeholder="enter name" required />
           </label>
 
           <label class="row" style="flex-direction:column">
             <span style="font-size:13px; color:var(--muted); margin-bottom:6px">Contact (phone or email)</span>
-            <input type="text" id="contactInfo" placeholder="+260 9xx xxx xxx or email@example.com" required />
+            <input type="text" 
+    id="contactInfo" 
+    placeholder="0971234567 or +260971234567 or email@example.com" 
+    required
+    pattern="^((\+260(7|9)\d{8})|(0(7|9)\d{8})|([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}))$"
+    title="Enter a valid Zambian phone number (07..., 09..., +2607..., +2609...) or a valid email address"   required />
           </label>
 
           <label class="row" style="flex-direction:column">
@@ -632,7 +637,6 @@ transform: scale(1.5);
       <strong>Accessibility & clarity:</strong> This site is written in plain language so everyone can understand our services and make simple requests. If you need help, call us and we will guide you step-by-step.
     </div>
   </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     // Simple helpers
@@ -681,14 +685,6 @@ requestForm.addEventListener('submit', (e) => {
     alert('Please fill the form so we can help you.');
     return;
   }
-const contactInfo = document.getElementById('contactInfo').value.trim();
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-
-if (!emailRegex.test(contactInfo) && !phoneRegex.test(contactInfo)) {
-  alert('Please enter a valid email or phone number.');
-  return;
-}
 
   // Send email using EmailJS
   emailjs.send('service_yekq70e', 'template_8in927p', {
@@ -744,6 +740,3 @@ document.getElementById('clearForm').addEventListener('click', () => {
 
 </body>
 </html>
-
-
-
